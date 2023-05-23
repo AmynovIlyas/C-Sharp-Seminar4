@@ -4,28 +4,33 @@
 // 78 --> 2
 // 89126 --> 5
 
-int Prompt()
+string Prompt()
 {
     Console.WriteLine("Введите число: ");
-    int result = int.Parse(Console.ReadLine()!);
+    string result = Console.ReadLine();
     return result;
 }
 
-int HowManyNumber(int num)
+int HowManyNumber(string num)
 {
     int count = 0;
-    if (num != 0)
+    int tmp = 0;
+    for (int i = 0; i < num.Length; i++)
     {
-        while (num > 0 || num < 0)
-        {
-            num /= 10;
-            count++;
-        }
+        tmp = num[i];
+        count++;
+    }
+    int numb = Convert.ToInt32(num);
+    if (numb < 0)
+    {
+        return count - 1;
+    }
+    else
+    {
         return count;
     }
-    return 1;
 }
 
-int number = Prompt();
+string number = Prompt();
 Console.WriteLine($"{number} --> {HowManyNumber(number)}");
 
