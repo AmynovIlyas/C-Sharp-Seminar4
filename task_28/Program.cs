@@ -13,14 +13,33 @@ int Prompt()
 int FindMultiplication(int num)
 {
     int sum = 1;
-    for(int i = 1; i <= num; i++)
+    if (num > 0)
     {
-        sum *= i;
+        for (int i = 2; i <= num; i++)
+        {
+            sum *= i;
+        }
+        return sum;
     }
-    return sum;
+    else if(num == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        for(int i = -1; i >= num; i--)
+        {
+            sum *= i;
+        }
+        return sum;
+    }
 }
 
 int number = Prompt();
 Console.WriteLine($"{number} --> {FindMultiplication(number)}");
-
+ 
+ // Эту задачу также можно решить путем использования третего метода, который будет добавлять минус перед числом, 
+ // если оно отрицательное и нечётное
+ 
+  
 
