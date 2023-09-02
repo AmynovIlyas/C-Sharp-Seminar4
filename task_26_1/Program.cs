@@ -7,7 +7,7 @@
 string Prompt()
 {
     Console.WriteLine("Введите число: ");
-    string result = Console.ReadLine();
+    string result = Console.ReadLine()!;
     return result;
 }
 
